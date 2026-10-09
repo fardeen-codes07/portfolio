@@ -1,0 +1,15 @@
+
+@import "tailwindcss";
+
+@source "./App.jsx";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #0c0e0d;
+  color: #f4f5f4;
+  font-family: Inter, system-ui, sans-serif;
+}
