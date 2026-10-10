@@ -88,11 +88,10 @@ function App() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl text-5xl font-semibold leading-[1.08] tracking-tight sm:text-7xl lg:text-8xl"
+          className="max-w-4xl text-5xl font-semibold leading-[1.08] tracking-tight sm:text-7xl lg:text-7xl"
         >
-          Building things
-          <br/>
-          for the <span className="text-lime-400">real world.</span>
+          Fardeen Mohammed<br/>
+          <span className="text-4xl text-lime-400">Developer in progress.</span>
         </motion.h1>
 
         <p className="mt-8 max-w-xl text-lg leading-8 text-gray-400">
