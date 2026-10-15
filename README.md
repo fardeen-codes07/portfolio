@@ -4,7 +4,7 @@ A personal developer portfolio showcasing my projects, technical skills, and jou
 
 Built with React and Tailwind CSS, featuring a dark charcoal interface, lime-green accents, responsive layouts, and smooth animations.
 
-**Live Portfolio:** https://portfolio-h781p2t8m-fardeen-codes07.vercel.app
+**Live Portfolio:** https://portfolio-b1jcn7b1i-fardeen-codes07.vercel.app/
 
 ## About Me
 
