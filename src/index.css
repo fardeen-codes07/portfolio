@@ -13,3 +13,37 @@ body {
   color: #f4f5f4;
   font-family: Inter, system-ui, sans-serif;
 }
+
+@import "tailwindcss";
+@source "./App.jsx";
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #0c0e0d;
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+#root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(139, 92, 246, 0.12) 0%,
+      rgba(132, 204, 22, 0.055) 32%,
+      transparent 68%
+    );
+}
