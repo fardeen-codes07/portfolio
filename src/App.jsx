@@ -33,14 +33,14 @@ const projects = [
     link: 'https://fardeen-codes07.github.io/SoundSpace/',
   },
   {
-    number: '04',
-    name: 'Movie Recommendation System',
-    image: '',
-    category: 'PYTHON PROJECT',
-    description:
-      'A movie recommendation application built with Python and Streamlit.',
-    stack: ['Python', 'Streamlit'],
-    link: '',
+  number: '04',
+  name: 'Personal Portfolio Website',
+  image: '/images/portfolio.png',
+  category: 'FRONTEND DEVELOPMENT',
+  description:
+    'A responsive personal developer portfolio built to showcase my projects, technical skills, and development journey.',
+  stack: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
+  link: 'YOUR_VERCEL_URL',
   },
 ];
 
@@ -88,7 +88,7 @@ function App() {
         <div>
           <p className="mb-6 flex items-center gap-3 text-sm text-violet-400">
             <span className="h-2 w-2 rounded-full bg-violet-400" />
-            DEVELOPER PORTFOLIO · 2026
+            Looking out for internships, projects & research
           </p>
 
           <h1 className="text-5xl font-semibold leading-tight tracking-tight sm:text-7xl">
@@ -188,7 +188,6 @@ function App() {
           </div>
           
           <div className="relative mx-auto aspect-square w-[300px] sm:w-[380px] lg:w-[460px]">
-  {/* 1. Ambient glow: richer behind the shoulders, long smooth fade into charcoal */}
   <div
     className="pointer-events-none absolute left-[2%] top-[26%] z-0 h-[84%] w-[96%] rounded-full opacity-80 blur-3xl"
     style={{
@@ -197,7 +196,6 @@ function App() {
     }}
   />
 
-  {/* 2. Background layer: violet circle, thin dotted outline, dot grid */}
   <svg
     className="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-visible"
     viewBox="0 0 100 100"
@@ -212,10 +210,8 @@ function App() {
       </radialGradient>
     </defs>
 
-    {/* Violet circular background (center 50,60 / r 33) */}
     <circle cx="50" cy="60" r="33" fill="url(#portrait-circle-fill)" />
 
-    {/* Dotted outline: outermost circle, thin and understated */}
     <circle
       cx="50"
       cy="60"
@@ -227,7 +223,6 @@ function App() {
       strokeDasharray="0.01 1.89"
     />
 
-    {/* Dot grid: 7x7, cut along the circle and fading outward */}
     {Array.from({ length: 49 }, (_, i) => {
       const x = 77 + (i % 7) * 2;
       const y = 21 + Math.floor(i / 7) * 2;
@@ -245,8 +240,6 @@ function App() {
       );
     })}
   </svg>
-
-  {/* 3. Portrait: cast shadow on the circle, then the portrait with a faint rim light */}
   <svg
     className="pointer-events-none absolute inset-0 z-20 h-full w-full overflow-visible"
     viewBox="0 0 100 100"
@@ -264,15 +257,12 @@ function App() {
         preserveAspectRatio="none"
       />
 
-      {/* Shadow only is output; the portrait is drawn on top of it */}
       <filter id="portrait-shadow" x="-10%" y="-10%" width="120%" height="125%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="1.6" />
         <feOffset dy="1.8" result="blurred" />
         <feFlood floodColor="#000" floodOpacity="0.45" />
         <feComposite in2="blurred" operator="in" />
       </filter>
-
-      {/* Rim light: a thin violet edge on upward-facing contours (hair, shoulders) */}
       <filter
         id="portrait-rim"
         x="-5%"
@@ -291,13 +281,9 @@ function App() {
           <feMergeNode in="rim" />
         </feMerge>
       </filter>
-
-      {/* Shadow receiver: the circle only */}
       <clipPath id="portrait-circle-clip">
         <circle cx="50" cy="60" r="33" />
       </clipPath>
-
-      {/* Portrait clip: circle + head window so the head escapes the circle */}
       <clipPath id="portrait-clip">
         <circle cx="50" cy="60" r="33" />
         <rect x="26" y="0" width="48" height="58" />
@@ -392,10 +378,6 @@ hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)]bg-white/[0.02] p-7 transition-al
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 ">
             {projects.map((project) => (
             <motion.article
-              key={project.number}
-              href={project.link || undefined}
-              target="_blank"
-              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
