@@ -40,7 +40,7 @@ const projects = [
   description:
     'A responsive personal developer portfolio built to showcase my projects, technical skills, and development journey.',
   stack: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
-  link: 'YOUR_VERCEL_URL',
+  link: 'https://portfolio-alpha-lemon-q4an9rdhso.vercel.app/',
   },
 ];
 
