@@ -1,5 +1,4 @@
-import './App.css'
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 const projects = [
   {
@@ -41,24 +40,14 @@ const projects = [
     'A responsive personal developer portfolio built to showcase my projects, technical skills, and development journey.',
   stack: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
   link: 'https://portfolio-alpha-lemon-q4an9rdhso.vercel.app/',
+  source: 'https://github.com/fardeen-codes07/portfolio',
   },
 ];
 
 
 
-const skills = [
-  'JavaScript',
-  'React',
-  'Node.js',
-  'Express.js',
-  'MongoDB',
-  'HTML & CSS',
-  'Python',
-  'C++',
-  'Git & GitHub',
-]
-
 function App() {
+  const reduceMotion = useReducedMotion();
   return (
     <main className="min-h-screen bg-[#0c0e0d] text-[#f4f5f4]">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0c0e0d]/90 backdrop-blur-xl">
@@ -68,7 +57,7 @@ function App() {
           </a>
 
           
-            <div className="flex gap-4 text-sm text-gray-400 sm:gap-8">
+            <div className="flex flex-wrap justify-end gap-x-3 gap-y-2 text-sm text-gray-400 sm:gap-8">
               <a href="#about" className="hover:text-violet-400">About</a>
               <a href="#skills" className="hover:text-violet-400">Skills</a>
               <a href="#projects" className="hover:text-violet-400">Projects</a>
@@ -98,7 +87,7 @@ function App() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-8 text-gray-400">
-            Hey, I'm Fardeen Mohammed — a B.Tech AI & ML student
+            Hey, I'm Fardeen Mohammed - a B.Tech AI & ML student
             at VIT Chennai, passionate about full-stack development
             and building practical digital experiences.
           </p>
@@ -107,11 +96,11 @@ function App() {
           <div className="mt-8 flex flex-wrap items-center gap-5">
             {/* Download Resume */}
             <a
-              href="/resume.pdf"
-              download
+              href="/Fardeen_Mohammed_Resume.pdf"
+              download="Fardeen_Mohammed_Resume.pdf"
               className="inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-4 text-base font-medium text-white transition-all duration-300 hover:border-violet-400/50 hover:bg-violet-400/10 hover:text-violet-300"
             >
-              Download Resume ↓
+              Download Resume
             </a>
 
             {/* Explore My Work */}
@@ -119,7 +108,7 @@ function App() {
               href="#projects"
               className="inline-flex items-center justify-center rounded-full bg-violet-400 px-8 py-4 text-base font-medium text-black transition-all duration-300 hover:bg-violet-300 hover:shadow-[0_0_25px_rgba(139,92,246,0.2)]"
             >
-              Explore my work ↘
+              Explore my work
             </a>
 
             {/* Get in Touch */}
@@ -133,7 +122,7 @@ function App() {
         </div>
         <div className="mt-20 grid max-w-2xl grid-cols-2 gap-8 border-t border-white/10 pt-8">
         <div>
-          <p className="text-3xl font-semibold">04+</p>
+          <p className="text-3xl font-semibold">{projects.length}+</p>
           <p className="mt-2 text-sm text-gray-500">
             Projects to explore
           </p>
@@ -183,7 +172,7 @@ function App() {
               href="#skills"
               className="mt-8 inline-block text-sm text-violet-400 transition hover:text-violet-300"
             >
-              Explore my skills ↘
+              Explore my skills
             </a>
           </div>
           
@@ -336,10 +325,7 @@ function App() {
               ].map((group) => (
                 <div
                   key={group.title}                  
-                  className="group rounded-2xl border border-white/[0.06] 
-transition-all duration-300 ease-out
-hover:-translate-y-1
-hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)]bg-white/[0.02] p-7 transition-all duration-300 shadow-[0_0_28px_rgba(139,92,246,0.10)] hover:border-violet-400/50 hover:bg-violet-400/[0.025] hover:shadow-[0_0_40px_rgba(139,92,246,0.18)] sm:p-9"
+                  className="group rounded-2xl border border-white/[0.08] bg-white/[0.025] p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-violet-400/45 hover:bg-violet-400/[0.06] hover:shadow-[0_12px_36px_rgba(139,92,246,0.13)] sm:p-9"
                 >
                   <h3 className="text-xl font-semibold">
                     {group.title}
@@ -364,7 +350,7 @@ hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)]bg-white/[0.02] p-7 transition-al
 
       <section id="projects" className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <p className="mb-4 text-sm text-violet-400">02 / SELECTED WORK</p>
+          <p className="mb-4 text-sm text-violet-400">03 / SELECTED WORK</p>
 
           <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
             <h2 className="text-4xl font-semibold tracking-tight sm:text-6xl">
@@ -378,35 +364,31 @@ hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)]bg-white/[0.02] p-7 transition-al
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 ">
             {projects.map((project) => (
             <motion.article
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 25 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{
-                duration: 0.5,
+                duration: reduceMotion ? 0 : 0.5,
                 delay: Number(project.number) * 0.1,
                 ease: "easeOut",
               }}
-              onClick={(e) => {
-                if (!project.link) e.preventDefault();
-              }}              
-              className="group rounded-2xl border border-white/[0.06] 
-transition-all duration-300 ease-out
-hover:-translate-y-1
-hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)] bg-white/[0.02] p-7 transition-all duration-300 shadow-[0_0_28px_rgba(139,92,246,0.10)] hover:border-violet-400/50 hover:bg-violet-400/[0.025] hover:shadow-[0_0_40px_rgba(139,92,246,0.18)] sm:p-9"
+              className="group rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-violet-400/50 hover:bg-violet-400/[0.055] hover:shadow-[0_14px_40px_rgba(139,92,246,0.16)] sm:p-7"
             >
                 
-                {project.image && (
+                {project.image ? (
                   <img
                     src={project.image}
                     alt={`${project.name} screenshot`}
                     loading="lazy"
-                    className="mb-8 aspect-video w-full rounded-xl border border-white/10 object-cover object-top"
+                    className="mb-5 aspect-video w-full rounded-xl border border-white/10 object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
                   />
+                ) : (
+                  <div aria-hidden="true" className="mb-5 grid aspect-video place-items-center rounded-xl border border-white/10 bg-white/[0.03] text-sm text-gray-500">Project preview</div>
                 )}
 
 
 
-                <div className="mb-12 flex items-center justify-between">
+                <div className="mb-4 flex items-center justify-between">
                   <span className="text-sm text-gray-500">
                     / {project.number}
                   </span>
@@ -416,7 +398,7 @@ hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)] bg-white/[0.02] p-7 transition-a
                   {project.category}
                 </p>
                 <h3 className="text-2xl font-semibold">{project.name}</h3>
-                <p className="mt-4 min-h-20 leading-7 text-gray-400">
+                <p className="mt-3 min-h-14 leading-7 text-gray-400">
                   {project.description}
                 </p>
 
@@ -436,17 +418,19 @@ hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)] bg-white/[0.02] p-7 transition-a
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-8 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-400/10 px-5 py-2.5 text-sm font-medium text-violet-400 shadow-[0_0_12px_rgba(139,92,246,0.06)] transition-all duration-300 hover:border-violet-400/60 hover:bg-violet-400/20 hover:text-violet-300 hover:shadow-[0_0_24px_rgba(139,92,246,0.2)]"
+                    className="mt-7 inline-flex min-h-11 items-center rounded-full bg-violet-400 px-5 py-2.5 text-sm font-medium text-black transition-colors hover:bg-violet-300"
                   >
                     Live Demo
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      ↗
-                    </span>
                   </a>
                 ) : (
                   <span className="mt-8 inline-block text-sm text-gray-500">
-                    Project details coming soon
+                    Demo coming soon
                   </span>
+                )}
+                {project.source && (
+                  <a href={project.source} target="_blank" rel="noreferrer" className="ml-3 mt-7 inline-flex min-h-11 items-center rounded-full border border-white/15 px-5 text-sm text-gray-300 hover:border-violet-400/50 hover:text-white">
+                    Source code
+                  </a>
                 )}
               </motion.article>
             ))}
@@ -456,8 +440,8 @@ hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)] bg-white/[0.02] p-7 transition-a
 
       <section className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="mb-4 text-sm text-violet-400">03 / ACHIEVEMENTS</p>
-          <div className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 transition-all duration-300 shadow-[0_0_28px_rgba(139,92,246,0.10)] hover:border-violet-400/50 hover:bg-violet-400/[0.025] hover:shadow-[0_0_40px_rgba(139,92,246,0.18)] sm:p-9">
+          <p className="mb-4 text-sm text-violet-400">04 / ACHIEVEMENTS</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 sm:p-9">
             <p className="text-5xl font-semibold text-violet-400">Top 50</p>
             <h3 className="mt-4 text-2xl font-medium">RIPPLE Hackathon Project</h3>
             <p className="mt-3 max-w-2xl leading-7 text-gray-400">
@@ -471,7 +455,7 @@ hover:shadow-[0_8px_24px_rgba(139,92,246,0.12)] bg-white/[0.02] p-7 transition-a
 
       <section id="contact" className="border-t border-white/10 ">
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <p className="mb-5 text-sm text-violet-400">04 / CONTACT</p>
+          <p className="mb-5 text-sm text-violet-400">05 / CONTACT</p>
           <h2 className="max-w-3xl text-5xl font-semibold tracking-tight sm:text-7xl">
             Have an opportunity?
             <br />
@@ -495,7 +479,7 @@ hover:border-violet-400/60
 hover:shadow-[0_0_28px_rgba(139,92,246,0.22)]
  font-medium text-black hover:bg-violet-300 transition-all duration-300 hover:-translate-y-1 active:scale-95"
             >
-              LinkedIn ↗
+              LinkedIn
             </a>
             <a
               href="https://github.com/fardeen-codes07"
@@ -510,7 +494,7 @@ hover:shadow-[0_0_28px_rgba(139,92,246,0.22)]
 hover:bg-violet-400/10
  border-white/20 px-6 py-3 hover:border-violet-400 transition-all duration-300 hover:-translate-y-1 active:scale-95"
             >
-              GitHub ↗
+              GitHub
             </a>
             
             <a
@@ -524,7 +508,7 @@ hover:shadow-[0_0_28px_rgba(139,92,246,0.22)]
 hover:bg-violet-400/10
 "
             >
-              Email me ↗
+              Email me
             </a>
             
             <a
@@ -539,7 +523,7 @@ hover:shadow-[0_0_28px_rgba(139,92,246,0.22)]
 hover:bg-violet-400/10
 px-6 py-3 text-white transition hover:border-violet-400 transition-all duration-300 hover:-translate-y-1 active:scale-95"
             >
-              Download Resume ↓
+              Download Resume
             </a>
 
 
@@ -551,7 +535,7 @@ px-6 py-3 text-white transition hover:border-violet-400 transition-all duration-
         <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-3 text-sm text-gray-500">
           <p>Designed & built by Fardeen.</p>
           <a href="#home" className="hover:text-violet-400 transition-all duration-300 hover:-translate-y-1 active:scale-95">
-            Back to top ↑
+            Back to top
           </a>
         </div>
       </footer>

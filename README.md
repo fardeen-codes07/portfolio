@@ -2,7 +2,7 @@
 
 A personal developer portfolio showcasing my projects, technical skills, and journey as a B.Tech AI & ML student at VIT Chennai.
 
-Built with React and Tailwind CSS, featuring a dark charcoal interface, lime-green accents, responsive layouts, and smooth animations.
+Built with React and Tailwind CSS, featuring a dark charcoal interface, violet accents, responsive layouts, and motion-aware animations.
 
 **Live Portfolio:** https://portfolio-ch3jfcl09-fardeen-codes07.vercel.app/
 
@@ -47,17 +47,20 @@ A music-inspired frontend project focused on interface design, layout, and user 
 
 **Live Demo:** [https://fardeen-codes07.github.io/SoundSpace/](https://fardeen-codes07.github.io/SoundSpace/)
 
-### 4. Movie Recommendation System
+### 4. Personal Portfolio Website
 
-A movie recommendation application built with Python and Streamlit.
+A responsive React portfolio built to showcase projects, skills, and contact information.
 
-**Technologies:** Python, Streamlit
+**Technologies:** React, Vite, Tailwind CSS, JavaScript
+
+**Live Demo:** [https://portfolio-alpha-lemon-q4an9rdhso.vercel.app/](https://portfolio-alpha-lemon-q4an9rdhso.vercel.app/)
+**Source:** [https://github.com/fardeen-codes07/portfolio](https://github.com/fardeen-codes07/portfolio)
 
 ## Features
 
-- Dark, minimalist design with lime-green accents
+- Dark, minimalist design with violet accents
 - Responsive layout for desktop and mobile screens
-- Smooth entrance animations and interactive hover effects
+- Motion-aware entrance animations and interactive hover effects
 - Dedicated About, Projects, Achievements, and Contact sections
 - Direct links to live projects and social profiles
 - Resume download option
